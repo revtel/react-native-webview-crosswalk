@@ -1,10 +1,11 @@
 'use strict';
 
-import React, { PropTypes } from 'react';
+import React from 'react';
 import ReactNative, { requireNativeComponent, View } from 'react-native';
+import PropTypes from 'prop-types';
+var createReactClass = require('create-react-class');
 
 var {
-    addons: { PureRenderMixin },
     NativeModules: { UIManager, CrosswalkWebViewManager: { JSNavigationScheme } }
 } = ReactNative;
 
@@ -12,8 +13,7 @@ var resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSourc
 
 var WEBVIEW_REF = 'crosswalkWebView';
 
-var CrosswalkWebView = React.createClass({
-    mixins:    [PureRenderMixin],
+var CrosswalkWebView = createReactClass({
     statics:   { JSNavigationScheme },
     propTypes: {
         injectedJavaScript:      PropTypes.string,
